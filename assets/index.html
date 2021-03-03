@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Revalia|Nunito:300" rel="stylesheet">    
 <link href="bstreeview.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/flatly/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/3e07ef6a18.js" crossorigin="anonymous"></script>
@@ -19,6 +20,55 @@
 </head>
 
 <body><div id="jquery-script-menu">
+  <div style="position:absolute;left:0px;top:90px;width:300px;border:1px #000000 solid;">
+    <div id="Route"></div> 
+  </div>
+  <div id="content"></div>
+  
+
+  <script id="requester-template" type="text/x-handlebars-template">
+    <table>
+    <tr>
+      <td>Customer:</td>
+      <td class="data">{{name}}</td>
+    </tr>
+  {{#if tags}}
+    <tr>
+      <td>Tags:</td>
+      <td class="data">{{#each tags}}{{this}} {{/each}}</td>
+    </tr>
+    {{/if}}
+    <tr>
+      <td>Added:</td>
+      <td class="data">{{created_at}}</td>
+    </tr>
+    <tr>
+      <td>Last signed in:</td>
+      <td class="data">{{last_login_at}}</td>
+    </tr>
+    </table>
+  </script>
+  
+  <script id="error-template" type="text/x-handlebars-template">
+    <p>{{status}} - {{statusText}} error. Please report a bug at the link below.</p>
+  </script>
+
+  <script id="choice-template" type="text/x-handlebars-template">
+    <div style="position:absolute;left:0px;top:40px;border:1px #000000 solid;">
+        <select name="Combobox1" size="1" id="Combobox1" onchange="showActive(value);return false;"style="left:0px;top:27px;width:100%;height:100%;border-width:0px;font-family:Courier New;font-size:13px;">
+            <option value="Case">Case</option>
+            <option value="E-Pocket">E-Pocket</option>
+            <option value="Ticket-ETA">Ticket-ETA</option>
+            <option value="BugReport">BugReport</option>
+        </select>
+    </div>
+    <div style="position:absolute;left:0px;top:15px;">
+        <p>Kind of?</p>
+    </div>
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.3.3/dist/handlebars.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <div class="jquery-script-center">
 
 </script>
